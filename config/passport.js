@@ -3,29 +3,29 @@
 /**
  * Module dependencies.
  */
-var fs = require('fs'),
-	http = require('http'),
-	https = require('https'),
-	express = require('express'),
-	morgan = require('morgan'),
-	bodyParser = require('body-parser'),
-	session = require('express-session'),
-	compress = require('compression'),
-	methodOverride = require('method-override'),
-	cookieParser = require('cookie-parser'),
-	helmet = require('helmet'),
-	passport = require('passport'),
-	mongoStore = require('connect-mongo')({
+const fs = require('fs');
+const	http = require('http');
+const	https = require('https');
+const	express = require('express');
+const	morgan = require('morgan');
+const	bodyParser = require('body-parser');
+const	session = require('express-session');
+const	compress = require('compression');
+const	methodOverride = require('method-override');
+const	cookieParser = require('cookie-parser');
+const	helmet = require('helmet');
+const	passport = require('passport');
+const	mongoStore = require('connect-mongo')({
 		session: session
-	}),
-	flash = require('connect-flash'),
-	config = require('./config'),
-	consolidate = require('consolidate'),
-	path = require('path');
+	});
+const	flash = require('connect-flash');
+const	config = require('./config');
+const	consolidate = require('consolidate');
+const	path = require('path');
 
 module.exports = function(db) {
 	// Initialize express app
-	var app = express();
+	const app = express();
 
 	// Globbing model files
 	config.getGlobbedFiles('./app/models/**/*.js').forEach(function(modelPath) {
