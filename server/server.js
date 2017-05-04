@@ -3,10 +3,30 @@
 /**
  * Module dependencies.
  */
-const init = require('./config/init')();
-const	config = require('./config/config');
-const	mongoose = require('mongoose');
-const	chalk = require('chalk');
+import http from 'http'; 
+import express from 'express'; 
+import cors from 'cors'; 
+import bodyParser from 'body-parser'; 
+
+
+const app = express(); 
+app.server = http.createServer(app); 
+
+// CORS - 3rd party middleware 
+app.use(cors()); 
+
+// This is required by falcor-express middleware  
+//to work correctly with falcor-browser 
+app.use(bodyParser.json({extended: false})); 
+
+app.get('/', (req, res) => res.send('Publishing App Initial Application!')); 
+
+app.server.listen(process.env.PORT || 3000); 
+console.log(&grave;Started on port ${app.server.address().port}&grave;); 
+export default app;
+
+
+
 
 /**
  * Main application entry file.

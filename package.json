@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/HienNguyen711/fedproject#readme",
   "dependencies": {
+    "mongodb": "^2.2.26",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
